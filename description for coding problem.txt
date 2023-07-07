@@ -1,0 +1,20 @@
+crear un programa que nos permita simular el comportamiento del carrito de una tienda en línea. Para ello, vamos a tener diferentes tipos de productos, como pantalon, audifonos y zanahoria.
+Todos los productos tendrán su nombre, precio y categoría que pertenecen:
+Los productos constaran en lo siguientes:
+[Pantalon 400 Ropa,
+Camisa Polo 200 Ropa,
+zapatos 300 Calzado,
+Audifonos 100 electronica,
+Laptop 1000 electronica,
+zanahoria 10 comida,
+manzana verde 15 comida,
+atun 20 comida]
+Contarás con un carrito de compras en el que podrás agregar productos,pagar el carrito y mostrar los productos.
+Al mostrar estos deben estar ordenados alfabéticamente por el nombre del producto; Debera mostrar el nombre de producto, su precio y el total del carrito.
+Al agregar el producto se debe mostrar todos los productos existentes en la tienda para que se puede seleccionar uno para agregar al carrito.
+Al pagar el carrito deberá añadirse a una lista de pedidos donde se identificará cada pedido con un identificador único en texto que tenga la estructura:
+(Primeras 2 letras del primer producto)+(fecha)+(últimas 3 letras del último producto).
+Esta lista debe poder mostrarse
+*No utilices funciones predefinidas de oprdenamiento (sort(),.sort, etc)
+*Utiliza POO
+*las funciones deben poder realizarse en tiempo de ejecución
