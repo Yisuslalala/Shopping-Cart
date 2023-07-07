@@ -1,1 +1,1 @@
-# cart-list
+# Shopping Cart in Python
