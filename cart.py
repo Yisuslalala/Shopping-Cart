@@ -1,4 +1,5 @@
 from cart_things import products
+from datetime import datetime
 
 
 
@@ -18,7 +19,7 @@ def add_product(article: str) -> None:
       
         
 # function that print the articles in the cart
-def cart_products(products: list) -> None:
+def cart_products() -> None:
     ordered_products = order_cart_list(products)
     n = len(ordered_products)
     for product in range(n):
@@ -26,7 +27,7 @@ def cart_products(products: list) -> None:
         pri = ordered_products[product][1] 
         print(pro, pri)
     
-    final_cart_price = sum_prices(ordered_products)
+    final_cart_price = sum_prices(PRODUCTS_TO_PAY)
     print(f"El total del carrito es: {final_cart_price}")
 
 
@@ -81,12 +82,22 @@ def pay_cart(products: list) -> None:
     f = products[0][0]
     f_sliced = f[0:2]
     s = products[n - 1][0]
+    s_n = len(s)
+    s_sliced = s[s_n - 3: s_n]
+    dia = datetime.now()
+    print(dia)
     
-    print(f_sliced)
-    print(s)
+    # print(f_sliced)
+    # print(s_sliced)
+    # print(s)
     
-    
-    pass
+    id = f_sliced + " " + str(dia) + " " + s_sliced
+    print(id)
+    PAYED_CARTS.append(id)
+    PRODUCTS_TO_PAY = []
+    print(PRODUCTS_TO_PAY)
+   
+   
 def main():
     exit = False
     while not exit: 
@@ -94,37 +105,25 @@ def main():
         print("Please select one of the options", end="\n  ")
         print("1.- Mostrar el carrito", end="\n  ")
         print("2.- Agregar al carrito", end="\n  ") 
-        # use show_products dentro de la condición para simular que se imprimen antes de 
-        # agregar y una variable que se le pasará a add_product para agregar este mismo.
-        print("3.- Pagar carrito") 
-        # TODO Agregar a lista de carritos pagados 
-        # (Primeras 2 letras del primer producto)+(fecha)+(últimas 3 letras del último producto)
+        print("3.- Pagar carrito", end="\n  ")
+        print("0.- Para salir")
+       
         respuesta = int(input())
         if respuesta == 1:
-            cart_products(PRODUCTS_TO_PAY)
-            pass
+            cart_products()
+            
         if respuesta == 2:
             show_products(products)
             product = str(input())
             add_product(product)
+            
         if respuesta == 3:
             pay_cart(PRODUCTS_TO_PAY)
+            PRODUCTS_TO_PAY.clear()
+        
+        if respuesta == 0:
             
-    # add_product("Melón")
-    # print(PRODUCTS_TO_PAY)
-    
-    
-    
+
+
 if __name__ == "__main__":
     main()
-    # print(PRODUCTS_TO_PAY)
-    # melon_price = find_price("Melón")
-    # print(melon_price)
-    # add_product("Melón")
-    # add_product("Cacahuates")
-    # add_product("Chamarra")
-    # add_product("Laptop")
-    # print(PRODUCTS_TO_PAY) 
-    # print(sum_prices(PRODUCTS_TO_PAY))
-    # 
-    # cart_products(PRODUCTS_TO_PAY)
