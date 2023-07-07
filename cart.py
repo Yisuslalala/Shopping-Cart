@@ -20,7 +20,7 @@ def add_product(article: str) -> None:
         
 # function that print the articles in the cart
 def cart_products() -> None:
-    ordered_products = order_cart_list(products)
+    ordered_products = order_cart_list(PRODUCTS_TO_PAY)
     n = len(ordered_products)
     for product in range(n):
         pro = ordered_products[product][0]
@@ -85,17 +85,15 @@ def pay_cart(products: list) -> None:
     s_n = len(s)
     s_sliced = s[s_n - 3: s_n]
     dia = datetime.now()
-    print(dia)
-    
-    # print(f_sliced)
-    # print(s_sliced)
-    # print(s)
-    
     id = f_sliced + " " + str(dia) + " " + s_sliced
     print(id)
     PAYED_CARTS.append(id)
     PRODUCTS_TO_PAY = []
     print(PRODUCTS_TO_PAY)
+
+def show_payed_carts() -> None:
+    for cart in PAYED_CARTS:
+        print(cart)
    
    
 def main():
@@ -114,7 +112,7 @@ def main():
             
         if respuesta == 2:
             show_products(products)
-            product = str(input())
+            product = str(input("Introduce el producto que desea: "))
             add_product(product)
             
         if respuesta == 3:
@@ -122,6 +120,8 @@ def main():
             PRODUCTS_TO_PAY.clear()
         
         if respuesta == 0:
+            show_payed_carts()
+            exit = True
             
 
 
