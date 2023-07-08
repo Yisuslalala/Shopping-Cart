@@ -2,7 +2,6 @@ from cart_things import products
 from datetime import datetime
 
 
-
 N = len(products)
 PRODUCTS_TO_PAY = []
 PAYED_CARTS = []
@@ -10,7 +9,6 @@ PAYED_CARTS = []
 
 # fun for add articles for a pay cart
 def add_product(article: str) -> None:
-    # show_products(products)
     if not check_existance(article):
         print(f"{article} is not in the product list")
     else:
@@ -78,14 +76,15 @@ def order_cart_list(products: list) -> list:
 
 # fun that makes the id and check of payment
 def pay_cart(products: list) -> None:
-    n = len(products)
-    f = products[0][0]
+    pay_products = order_cart_list(products)
+    n = len(pay_products)
+    f = pay_products[0][0]
     f_sliced = f[0:2]
-    s = products[n - 1][0]
+    s = pay_products[n - 1][0]
     s_n = len(s)
     s_sliced = s[s_n - 3: s_n]
-    dia = datetime.now()
-    id = f_sliced + " " + str(dia) + " " + s_sliced
+    day = datetime.now()
+    id = f_sliced + " " + str(day) + " " + s_sliced
     print(id)
     PAYED_CARTS.append(id)
     PRODUCTS_TO_PAY = []
