@@ -76,19 +76,22 @@ def order_cart_list(products: list) -> list:
 
 # fun that makes the id and check of payment
 def pay_cart(products: list) -> None:
-    pay_products = order_cart_list(products)
-    n = len(pay_products)
-    f = pay_products[0][0]
-    f_sliced = f[0:2]
-    s = pay_products[n - 1][0]
-    s_n = len(s)
-    s_sliced = s[s_n - 3: s_n]
-    day = datetime.now()
-    id = f_sliced + " " + str(day) + " " + s_sliced
-    print(id)
-    PAYED_CARTS.append(id)
-    PRODUCTS_TO_PAY = []
-    print(PRODUCTS_TO_PAY)
+    if not products:
+        exit
+    else:
+        pay_products = order_cart_list(products)
+        n = len(pay_products)
+        f = pay_products[0][0]
+        f_sliced = f[0:2]
+        s = pay_products[n - 1][0]
+        s_n = len(s)
+        s_sliced = s[s_n - 3: s_n]
+        day = datetime.now()
+        id = f_sliced + " " + str(day) + " " + s_sliced
+        print(id)
+        PAYED_CARTS.append(id)
+        PRODUCTS_TO_PAY = []
+        print(PRODUCTS_TO_PAY)
 
 def show_payed_carts() -> None:
     for cart in PAYED_CARTS:
