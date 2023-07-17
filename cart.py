@@ -61,7 +61,7 @@ def show_products(products: list) -> None:
 
 
 # fun that uses bubble sort to order the list of products
-# use the order algorithm that you know
+# use the order algorithm that you know # [Zapatos, Audífonos]
 def order_cart_list(products: list) -> list:
     products_ordered = products
     n = len(products_ordered)
@@ -85,7 +85,9 @@ def pay_cart(products: list) -> None:
         f_sliced = f[0:2]
         s = pay_products[n - 1][0]
         s_n = len(s)
+        print(s_n)
         s_sliced = s[s_n - 3: s_n]
+        print(s_sliced)
         day = datetime.now()
         id = f_sliced + " " + str(day) + " " + s_sliced
         print(id)
@@ -129,3 +131,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+    # Theprimagen frontendmasters.com
+    # nested code
+    # needed code 150 nested code
+    # leetcode 
+    # blind 74 leetcode 
